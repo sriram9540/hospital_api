@@ -12,7 +12,9 @@
     "prisma:generate": "prisma generate",
     "prisma:validate": "prisma validate",
     "prisma:migrate:dev": "prisma migrate dev",
-    "prisma:migrate:deploy": "prisma migrate deploy"
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "db:status": "prisma migrate status",
+    "db:baseline": "prisma migrate resolve --applied \"20260101000000_init\""
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
@@ -35,5 +37,8 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
+  },
+  "overrides": {
+    "tinypool": "2.2.0"
   }
 }
