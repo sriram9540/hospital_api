@@ -184,11 +184,9 @@ model Appointment {
   reschedules    Appointment[] @relation("RescheduleChain")
 
   notificationJobs NotificationJob[]
-  auditEntries     AuditLog[]
 
   @@index([patientId])
   @@index([slotId])
-  @@index([status, startsAt])
   @@index([status])
   @@index([rescheduleOf])
   @@map("appointments")

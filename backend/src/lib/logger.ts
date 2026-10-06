@@ -60,7 +60,7 @@ function redactValue(value: unknown, depth = 0): unknown {
 }
 
 function emit(level: Level, meta: Record<string, unknown>, msg: string): void {
-  const payload = { ts: new Date().toISOString(), level, ...redactValue(meta) };
+  const payload = { ts: new Date().toISOString(), level, ...(redactValue(meta) as Record<string, unknown>) };
   const line = JSON.stringify({ msg, ...payload });
   if (level === 'error') {
     console.error(line);
