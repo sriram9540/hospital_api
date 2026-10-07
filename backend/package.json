@@ -1,44 +1,38 @@
 {
-  "name": "hospital-app-backend",
-  "version": "0.1.0",
+  "name": "hospital-api",
   "private": true,
+  "version": "1.0.0",
+  "description": "MEDI BOOK Appointment API — standalone Express + Neon Postgres backend (Render deployable)",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "dev": "tsx src/api.server.ts",
     "build": "tsc -p tsconfig.json",
-    "dev": "tsx watch src/server.ts",
-    "start": "node dist/server.js",
+    "start": "node dist/api.server.js",
+    "seed": "tsx prisma/seed.ts",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "prisma:generate": "prisma generate",
-    "prisma:validate": "prisma validate",
-    "prisma:migrate:dev": "prisma migrate dev",
-    "prisma:migrate:deploy": "prisma migrate deploy",
-    "db:status": "prisma migrate status",
-    "db:baseline": "prisma migrate resolve --applied \"20260101000000_init\""
+    "lint": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@prisma/client": "^5.22.0",
-    "argon2": "^0.41.1",
+    "@prisma/client": "^7.10.0",
+    "argon2": "^0.45.1",
     "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
     "express": "^4.21.2",
-    "helmet": "^8.0.0",
-    "zod": "^3.23.8"
+    "pg": "^8.13.1",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@types/cookie-parser": "^1.4.7",
-    "@types/cors": "^2.8.17",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
     "@types/express": "^4.17.21",
-    "@types/node": "^22.10.2",
-    "@types/supertest": "^6.0.2",
-    "prisma": "^5.22.0",
-    "supertest": "^7.0.0",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
-  },
-  "overrides": {
-    "tinypool": "2.2.0"
+    "@types/node": "^22.14.0",
+    "@types/pg": "^8.11.0",
+    "tsx": "^4.21.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
   }
 }
